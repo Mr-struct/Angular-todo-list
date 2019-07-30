@@ -1,0 +1,19 @@
+<a class="collection-item">
+  <div href="" *ngIf="todo.done; else notDoneTodo">
+    <h4 style="text-decoration:line-through">
+      <span class="red btn-floating ">
+        <i class="material-icons">alarm_off</i>
+      </span>
+      {{ todo.text }}
+    </h4>
+  </div>
+  <ng-template #notDoneTodo>
+    <span class="green btn-floating pulse">
+      <i class="material-icons">alarm_add</i>
+    </span>
+    {{ todo.text }}
+    <button class=" green btn secondary-content">
+      <i class="material-icons">done</i>
+    </button>
+  </ng-template>
+</a>
