@@ -1,19 +1,52 @@
-<a class="collection-item">
-  <div href="" *ngIf="todo.done; else notDoneTodo">
-    <h4 style="text-decoration:line-through">
-      <span class="red btn-floating ">
-        <i class="material-icons">alarm_off</i>
-      </span>
+<!-- <li class="collection-item avatar">
+  <div *ngIf="todo.done; else notDoneTodo">
+    <i class="red btn-floating material-icons">alarm_off</i>
+    <h5 style=" text-decoration:line-through">
       {{ todo.text }}
-    </h4>
-  </div>
-  <ng-template #notDoneTodo>
-    <span class="green btn-floating pulse">
-      <i class="material-icons">alarm_add</i>
-    </span>
-    {{ todo.text }}
-    <button class=" green btn secondary-content">
-      <i class="material-icons">done</i>
+    </h5>
+
+    <button (click)="deleteTodo()" class=" red btn secondary-content">
+      <i class="material-icons">delete_forever</i>
     </button>
-  </ng-template>
-</a>
+  </div>
+</li> -->
+<div *ngIf="todo.done; else notDoneTodo">
+  <div class="collection-item avatar">
+    <i class="material-icons circle red pulse">alarm_off</i>
+
+    <small class="title" style="color:lightcoral">
+      {{ todo.date }} <br />
+      {{ todo.time }}
+    </small>
+    <h5 style="color:red; text-decoration:line-through ">
+      <b>{{ todo.text }}</b>
+    </h5>
+
+    <button (click)="deleteTodo()" class=" red btn secondary-content">
+      <i class="material-icons">delete_forever</i>
+    </button>
+  </div>
+</div>
+
+<ng-template #notDoneTodo>
+  <div class="collection-item avatar">
+    <i class="material-icons circle green pulse">alarm_add</i>
+    <div>
+      <small class="title">
+        {{ todo.date }} <br />
+        {{ todo.time }}
+      </small>
+      <h5>
+        <b>{{ todo.text }}</b>
+      </h5>
+    </div>
+    <div class="secondary-content">
+      <button (click)="doneTodo()" class="green btn" style="margin:5px">
+        <i class="material-icons">done</i>
+      </button>
+      <button (click)="deleteTodo()" class="red btn">
+        <i class="material-icons">delete_forever</i>
+      </button>
+    </div>
+  </div>
+</ng-template>

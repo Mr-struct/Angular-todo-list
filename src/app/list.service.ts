@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Todo } from "./models/Todo";
+import { Map } from "immutable";
 @Injectable({
   providedIn: "root"
 })
@@ -11,16 +12,24 @@ export class ListService {
     return this.list;
   }
   addTodo(item: Todo) {
-    item.id = this.list.length;
-    item.done = false;
     this.list.push(item);
   }
 
-  doneTodo(id: number) {
-    this.list[id].done = true;
+  doneTodo(todo: Todo) {
+    const index = this.list.indexOf(todo);
+    this.list[index].done = true;
   }
 
-  deleteTodo(id: number) {
-    this.list.splice(id, 1);
+  deleteTodo(todo) {
+    const index = this.list.indexOf(todo);
+    this.list.splice(index, 1);
+  }
+
+  filterByNotDoneTodo() {
+    return this.list.filter(x => !x.done);
+  }
+
+  filterByDoneTodo() {
+    return this.list.filter(x => x.done);
   }
 }

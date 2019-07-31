@@ -1,6 +1,14 @@
-<div>
-  <h1 class="center">Todo's</h1>
-  <div class="collection">
-    <app-todo-item *ngFor="let item of todos" [todo]="item"></app-todo-item>
+<app-add-todo (updateList)="onUpdateList($event)"></app-add-todo>
+<app-filter (setFilterNotify)="setFilter($event)"></app-filter>
+<div class="card">
+  <div
+    class="collection shadow"
+    *ngIf="todos && todos.length"
+    style="max-height: 40vh; overflow: auto;"
+  >
+    <div *ngFor="let item of todos">
+      <app-todo-item [todo]="item" (updateList)="setFilter(filter)">
+      </app-todo-item>
+    </div>
   </div>
 </div>

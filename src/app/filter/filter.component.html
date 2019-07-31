@@ -1,0 +1,23 @@
+<div class="center" style=" margin: 20px ">
+  <button
+    class="blue waves-effect waves-light btn"
+    style=" margin: 5px  "
+    (click)="setFilter(filter.ALL_TODOS)"
+  >
+    All todos
+  </button>
+  <button
+    class="green waves-effect waves-light btn"
+    style=" margin: 5px "
+    (click)="setFilter(filter.NOT_DONE_TODOS)"
+  >
+    <i class="material-icons center">alarm_add</i>
+  </button>
+  <button
+    class="red waves-effect waves-light btn"
+    style=" margin: 5px"
+    (click)="setFilter(filter.DONE_TODOS)"
+  >
+    <i class="material-icons center">alarm_off</i>
+  </button>
+</div>

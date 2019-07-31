@@ -10,6 +10,8 @@ import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { AboutComponent } from "./about/about.component";
 import { ListService } from "./list.service";
 import { AddTodoComponent } from "./add-todo/add-todo.component";
+import { MainTodoAppComponent } from "./main-todo-app/main-todo-app.component";
+import { FilterComponent } from './filter/filter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { AddTodoComponent } from "./add-todo/add-todo.component";
     TodoItemComponent,
     NavBarComponent,
     AboutComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    MainTodoAppComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { AddTodoComponent } from "./add-todo/add-todo.component";
     RouterModule.forRoot([
       {
         path: "",
-        component: TodosComponent
+        component: MainTodoAppComponent
       },
       {
         path: "about",
